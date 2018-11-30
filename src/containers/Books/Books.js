@@ -32,7 +32,6 @@ class Books extends Component {
 
     loadData() {
         //Ajax request list of books
-        console.log("Called");
         axios.post('/books', {
             page: this.state.currentPage,
             itemsPerPage: 20,
