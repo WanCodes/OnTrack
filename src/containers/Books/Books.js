@@ -30,8 +30,9 @@ class Books extends Component {
         }
     }
 
-    loadData(cb) {
+    loadData() {
         //Ajax request list of books
+        console.log("Called");
         axios.post('/books', {
             page: this.state.currentPage,
             itemsPerPage: 20,
@@ -40,7 +41,6 @@ class Books extends Component {
             .then(response => {
                 const books = response.data.books;
                 const count = parseInt(response.data.count);
-                if(cb) cb();
                 this.setState({ books: books, count: count, pageCount: Math.ceil(count / 20) });
             })
             .catch(err => {
@@ -70,9 +70,7 @@ class Books extends Component {
     }
     //Load data with new search term
     bookFilterHandler = () => {
-        this.loadData(()=>{
-            this.setCurrentPage(1);
-        });
+        this.setCurrentPage(1);
     }
 
     render() {
