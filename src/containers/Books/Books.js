@@ -76,18 +76,18 @@ class Books extends Component {
         return (
             <>
                 <Row className="show-grid text-center">
-                    <Col className="xs={12} md={12}">
+                    <Col xs={12} md={12}>
                         <BookFilter inputChange={this.searchTermChangeHandler} inputValue={this.state.searchTerm} searchClickHandler={this.bookFilterHandler}/>
                     </Col>
                 </Row>
 
                 <Row className="show-grid text-center">
-                    <Col className="xs={12} md={12}">
+                    <Col xs={12} md={12}>
+                    <nav>
                         <ReactPaginate
                             previousLabel={"previous"}
                             nextLabel={"next"}
                             breakLabel={"..."}
-                            breakClassName={"break-me"}
                             pageCount={this.state.pageCount}
                             marginPagesDisplayed={2}
                             pageRangeDisplayed={5}
@@ -98,17 +98,18 @@ class Books extends Component {
                             initialPage={(parseInt(this.props.match.params.page) - 1)}
                             forcePage={parseInt(this.state.currentPage-1)}
                         />
+                        </nav>
                     </Col>
                 </Row>
 
                 <Row className="show-grid text-left">
-                    <Col className="xs={12} md={12}">
+                    <Col xs={12} md={12}>
                         <BookList books={this.state.books} error={this.state.error}/>
                     </Col>
                 </Row>
 
                 <Row className="show-grid text-right">
-                    <Col className="xs={12} md={12}">
+                    <Col xs={12} md={12}>
                         <PageNo currentPage={this.state.currentPage} pageCount={this.state.pageCount} />
                     </Col>
                 </Row>

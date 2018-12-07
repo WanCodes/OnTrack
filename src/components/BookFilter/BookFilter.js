@@ -15,7 +15,7 @@ const bookFilter = (props) => {
         <FormGroup>
             <InputGroup>
                 <FormControl type="text" placeholder="Search Term" onKeyUp={keyupHandler} onChange={props.inputChange} value={props.inputValue} />
-                <InputGroup.Button>
+                <InputGroup.Button >
                     <Button bsStyle="primary" onClick={props.searchClickHandler}>Search</Button>
                 </InputGroup.Button>
             </InputGroup>
