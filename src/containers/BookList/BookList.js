@@ -21,29 +21,11 @@ class BookList extends Component {
                     filters: [{ type: "all", values: [""] }]
                 })
                     .then(response => {
-                        // console.log(response);
-                        console.log("Loaded DATA!!");
                         const count = parseInt(response.data.count);
                         this.props.updateBooks({books:response.data.books, pageCount:Math.ceil(count / 20), currentPage:parseInt(this.props.match.params.id)});
-                        //this.setState({ books: response.data.books, currentPageId:this.props.match.params.id });
                     });
             }
         }
-
-        //Ajax request list of books
-        // axios.post('/books', {
-        //     page: this.state.currentPage,
-        //     itemsPerPage: 20,
-        //     //filters: [{ type: "all", values: [this.state.searchTerm] }]
-        // })
-        //     .then(response => {
-        //         const books = response.data.books;
-        //         const count = parseInt(response.data.count);
-        //         this.setState({ books: books, count: count, pageCount: Math.ceil(count / 20) });
-        //     })
-        //     .catch(err => {
-        //         this.setState({ error: err });
-        //     });
     }
 
     render() {
