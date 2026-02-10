@@ -1,44 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## OnTrack Books
 
-## Available Scripts
+OnTrack Books is a React application for browsing a paginated catalogue of books. It fetches data from a remote API and displays each book’s title, author(s) and publication year, with pagination controls and routing for each page of results.
 
-In the project directory, you can run:
+### Features
 
-### `npm start`
+- **Paginated book listing**: Browse books page by page using `react-paginate`.
+- **Book details**: See a book’s title, list of authors, and publication year in a Bootstrap-styled list.
+- **Client-side routing**: Uses `react-router` so each page of results has its own URL (for example `/1`, `/2`).
+- **Global state management**: Uses `redux`/`react-redux` to store the current page, total page count, and loaded books.
+- **API integration**: Uses `axios` configured with the base URL `http://nyx.vima.ekt.gr:3000/api` to load books from `/books`.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Tech Stack
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- **React 16** with Create React App
+- **Redux** and **react-redux**
+- **react-router / react-router-dom**
+- **react-bootstrap** and **bootstrap-sass**
+- **react-paginate**
+- **axios**
+- **Sass** compiled with `node-sass-chokidar`
 
-### `npm test`
+### Getting Started
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Install dependencies**
 
-### `npm run build`
+   ```bash
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Run the app in development**
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   This runs Sass compilation and the CRA dev server in parallel. Open `http://localhost:3000` in your browser.
 
-### `npm run eject`
+3. **Build for production**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   ```bash
+   npm run build
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   This outputs an optimized production build to the `build` directory, including compiled CSS.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### API Notes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The app expects the external API at `http://nyx.vima.ekt.gr:3000/api` (configured in `src/axios.js`). If that API is unavailable or changes, the book list may fail to load; you can update the `baseURL` in `src/axios.js` to point to a compatible endpoint.
 
-## Learn More
+### Scripts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **`npm start`**: Watch Sass files, then start the React development server.
+- **`npm run build`**: Build Sass and bundle the app for production.
+- **`npm test`**: Run the test runner.
+- **`npm run eject`**: Eject from Create React App (one-way operation).
